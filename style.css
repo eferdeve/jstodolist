@@ -8,6 +8,11 @@ body {
     background-size: cover;
     font-family: 'Newsreader', serif;
     min-height: 100vh;
+    padding: 20px;
+}
+
+.hide {
+    visibility: hidden;
 }
 
 .titleBanner {
@@ -77,6 +82,11 @@ body {
     border-top: solid 2px #000000ab;
 }
 
+.globalItemsContainer .itemsContainer .todoItemsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .globalItemsContainer .itemsContainer .item {
     padding: 0 10px;
     text-transform: uppercase;
@@ -110,8 +120,9 @@ body {
 .deletedItemsContainer {
     height: 150px;
     background-color:rgb(0 0 0 / 15%);
-    margin: 0 15px 10px 60px;
-    border-top-left-radius: 200px;
+    margin: 0 15px 10px 30%;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
 .deletedItemsContainer .deletedItems {
@@ -122,10 +133,15 @@ body {
 }
 @keyframes generic {
     0% {
-        transform: translate(0);
+        transform: translate(-20vw, 0);
     } 50% {
-        transform: translate(40vw, 70px);
+        transform: translate(30vw, 70px);
     } 100% {
-        transform: translate(80vw, 0);
+        transform: translate(70vw, 0);
     }
+}
+
+.ghost {
+    color: #FFFF;
+    font-size: 20px;
 }
