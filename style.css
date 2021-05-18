@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    background-image: url('source/joanna-kosinska-1_CMoFsPfso-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Newsreader', serif;
+    min-height: 100vh;
+}
+
+.titleBanner {
+    width: 100%;
+    height: 75px;
+    font-size: 2em;
+    color: rgb(62, 61, 60);
+    padding: 1px;
+}
+
+.titleBanner h1 {
+    margin: 0;
+    padding: 10px 30px;
+}
+
+.addItem {
+    background: rgb(255 226 0 / 50%);
+    border-radius: 10px;
+    width: 69%;
+    height: 120px;
+    margin: 10px 20px 20px 30%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.addItem .addItemInput {
+    margin: auto 0;
+}
+
+.addItem .addItemInput .enterInput {
+    width: 300px;
+    height: 40px;
+    border-radius: 4px;
+    border-style: none;
+    padding: 0 10px;
+}
+
+.addItem .btnEnterContainer {
+    margin: auto 0;
+}
+
+.addItem .btnEnterContainer .btnEnter {
+    width: 150px;
+    height: 40px;
+    border-radius: 4px;
+    border-style: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.addItem .btnEnterContainer .btnEnter:hover {
+    transform: scale(1.1);
+}
+
+.globalItemsContainer {
+    width: 69%;
+    margin: 10px 20px 20px 30%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.globalItemsContainer .itemsContainer {
+    width: 30%;
+    border-radius: 10px;
+    border-bottom: solid 4px #000000ab;
+    border-top: solid 2px #000000ab;
+}
+
+.globalItemsContainer .itemsContainer .item {
+    padding: 0 10px;
+    text-transform: uppercase;
+}
+
+.globalItemsContainer .itemsContainer .boxTitleContainer {
+    height: 50px;
+    background-color: #d4ff004d;
+    border-radius: 10px;
+    border: solid 1px #02020230;
+    cursor: pointer;
+}
+
+.boxTitle {
+    text-align: center;
+    text-transform: uppercase;
+    margin: auto 0;
+    padding: 15px 0;
+}
+
+#todoItems {
+    background-color: rgba(245, 86, 0, 0.297);
+}
+#progressItems {
+    background-color: rgba(249, 138, 3, 0.297);
+}
+#finishedItems {
+    background-color: rgba(3, 249, 11, 0.297);
+}
+
+.deletedItemsContainer {
+    height: 150px;
+    background-color:rgb(0 0 0 / 15%);
+    margin: 0 15px 10px 60px;
+    border-top-left-radius: 200px;
+}
+
+.deletedItemsContainer .deletedItems {
+    padding: 0 50px;
+    animation: generic 15s linear infinite;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+@keyframes generic {
+    0% {
+        transform: translate(0);
+    } 50% {
+        transform: translate(40vw, 70px);
+    } 100% {
+        transform: translate(80vw, 0);
+    }
+}
