@@ -12,6 +12,7 @@ $(document).ready(function() {
     let itemIds = Object.keys(localStorage);
     let itemVal = Object.values(localStorage);
 
+    // Boucle pour afficher les ids et values du localstorage
     for (let i = 0; i < itemIds.length; i++) {
         $('.todoItemsContainer').append(
            $('<span class="item"' + ' id="' + itemIds[i] + '">' + itemVal[i] + '</span>'))
@@ -29,16 +30,15 @@ function addItem() {
 
     let itemDiv = $('<span class="item"' + ' id="' + itemId + '">' + itemValue + '</span>');
 
-    localStorage.setItem(itemId, itemValue);
-
-    $('.todoItemsContainer').append(itemDiv);
-    $('#itemInput').val("");
+    // Condition si le champ est vide
+    if (itemValue != "") {
+        localStorage.setItem(itemId, itemValue);
+        $('.todoItemsContainer').append(itemDiv);
+        $('#itemInput').val("");
+    } else {
+        alert('Ce champ ne doit pas être vide !')
+    }
 
     console.log('Item ajouter à la liste avec l\'id : ' + itemId);
 }
 
-// récupérer les valeurs de l'input
-
-// les stocker dans le localstorage
-
-// récupérer les valeurs du localstorage et les afficher dans la div
