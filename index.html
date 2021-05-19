@@ -1,89 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
     <!-- JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
     <!-- JQUERY -->
     <title>My Todolist</title>
-</head>
-<body>
-
-
-<div class="titleBanner">
-    <h1>Ma todolist</h1>
-</div>
-
-<div class="addItem">
-    <div class="addItemInput">
-        <input class="enterInput" type="text" placeholder="Ajouter un élément" id="itemInput">
+  </head>
+  <body>
+    <div class="titleBanner">
+      <h1>Ma todolist</h1>
     </div>
-    <div class="btnEnterContainer">
+
+    <div class="addItem">
+      <div class="addItemInput">
+        <input
+          class="enterInput"
+          type="text"
+          placeholder="Ajouter un élément"
+          id="itemInput"
+        />
+      </div>
+      <div class="btnEnterContainer">
         <button class="btnEnter" onclick="addItem();">Ajouter</button>
+      </div>
     </div>
-</div>
 
-<div class="globalItemsContainer">
-    <div class="itemsContainer" id="todoItems">
+    <div class="globalItemsContainer">
+      <div class="itemsContainer" id="todoItems">
         <div class="boxTitleContainer">
-            <h2 class="boxTitle">A faire</h2>
+          <h2 class="boxTitle">A faire</h2>
         </div>
-        <div class="boxContainer todoItemsContainer">
-            
-        </div>
-
-    </div>
-    <div class="itemsContainer" id="progressItems">
+        <div class="boxContainer todoItemsContainer"></div>
+      </div>
+      <div class="itemsContainer" id="progressItems">
         <div class="boxTitleContainer">
-            <h2 class="boxTitle">En cours</h2>
+          <h2 class="boxTitle">En cours</h2>
         </div>
-        <div class="boxContainer progressItemContainer">
-
-        </div>
-    </div>
-    <div class="itemsContainer" id="finishedItems">
+        <div class="boxContainer progressItemContainer"></div>
+      </div>
+      <div class="itemsContainer" id="finishedItems">
         <div class="boxTitleContainer">
-            <h2 class="boxTitle">Terminée</h2>
+          <h2 class="boxTitle">Terminée</h2>
         </div>
-        <div class="boxContainer finishItemContainer">
-
-        </div>
+        <div class="boxContainer finishItemContainer"></div>
+      </div>
     </div>
-</div>
 
-<div class="deletedItemsContainer">
-    <h3 class="boxTitle">Récemment supprimés</h3>
-    <p class="deletedItems">
-        <span class="ghost fas fa-ghost"></span>    deleted items here
-    </p>
-</div>
+    <div class="deletedItemsContainer">
+      <h3 class="boxTitle">Récemment supprimés</h3>
+      <p class="deletedItems">
+        <span class="ghost fas fa-ghost"></span> deleted items here
+      </p>
+    </div>
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

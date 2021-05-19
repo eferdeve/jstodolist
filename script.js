@@ -16,20 +16,31 @@ $(document).ready(function() {
     for (let i = 0; i < itemIds.length; i++) {
         $('.todoItemsContainer').append(
            $('<span class="item"' + ' id="' + itemIds[i] + '">' + itemVal[i] + '</span>'))
-    }
+    };
 
     // Transition de la colonne "A FAIRE" -> "EN COURS"
     function progressItem() {
-        $('.item').click(
-            function progressItem(e) {
+        $('.item').click((e) => {
                 let target = e.target;
                
                 $('.progressItemContainer').append(target);
                 target.className = 'item' + ' progress';
+                $('.progress').attr('onclick', finishItem());
             }
-        )
-    }
+        );
+    };
 
+    // Transition de la colonne "EN COURS" -> "TERMINEE"
+    function finishItem() {
+        if ($('.item').hasClass('progress')) {
+            $('.progress').click((e) => {
+                let target = e.target;
+    
+                $('.finishItemContainer').append(target);
+                target.className = 'item' + ' finish';
+            })
+        }
+    };
 
     // Appel des functions qui ne peuvent être misent en onclick dans le DOM
     progressItem();
