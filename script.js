@@ -1,4 +1,4 @@
-// Function définit d'office et appliqué sans au chargement de l'app
+// Function définit d'office et appliqué au chargement de l'app
 $(document).ready(function() {
     let addInput = $('#itemInput');
 
@@ -17,8 +17,22 @@ $(document).ready(function() {
         $('.todoItemsContainer').append(
            $('<span class="item"' + ' id="' + itemIds[i] + '">' + itemVal[i] + '</span>'))
     }
-  
 
+    // Transition de la colonne "A FAIRE" -> "EN COURS"
+    function progressItem() {
+        $('.item').click(
+            function progressItem(e) {
+                let target = e.target;
+               
+                $('.progressItemContainer').append(target);
+                target.className = 'item' + ' progress';
+            }
+        )
+    }
+
+
+    // Appel des functions qui ne peuvent être misent en onclick dans le DOM
+    progressItem();
 });
 
 function addItem() {
@@ -35,10 +49,11 @@ function addItem() {
         localStorage.setItem(itemId, itemValue);
         $('.todoItemsContainer').append(itemDiv);
         $('#itemInput').val("");
+        console.log('Item ajouter à la liste avec l\'id : ' + itemId);
     } else {
         alert('Ce champ ne doit pas être vide !')
     }
 
-    console.log('Item ajouter à la liste avec l\'id : ' + itemId);
+
 }
 
