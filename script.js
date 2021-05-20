@@ -19,13 +19,14 @@ $(document).ready(function() {
     for (let i = 0; i < itemIds.length; i++) {
         $('.todoItemsContainer').append(
            $('<span class="item"' + ' id="' + itemIds[i] + '">' + itemVal[i] + '</span>'));
+        $(`#${itemIds}`).attr('onclick', 'progressItem()');
     };
 
     if (itemSessionValue != "true") {
-        for (let i = 1; i < itemSessionId.length; i++) {
+        for (let i = 0; i < itemSessionId.length; i++) {
             $('.progressItemContainer').append(
                 $('<span class="item"' + ' id="' + itemSessionId[i] + '">' + itemSessionValue[i] + '</span>')
-            )
+            );
         }
     }
 
@@ -33,27 +34,21 @@ $(document).ready(function() {
     progressItem();
 });
 
-
-
-
-
-
-
 function addItem() {
     // Récupère la valeur de l'input
     let itemValue = $('#itemInput').val(); 
     let itemNumber = Math.floor(Math.random() * 200);
     // Attribut un id à chaque nouvel item
-    let itemId = 'item_' + itemNumber;
+    let itemId = `item_${itemNumber}`;
 
-    let itemDiv = $('<span class="item" onclick="progressItem();"' + ' id="' + itemId + '">' + itemValue  + '</span>');
+    let itemDiv = $(`<span class="item" onclick="progressItem();" id="${itemId}">${itemValue}</span>`);
 
     // Condition si le champ est vide
     if (itemValue != "") {
         localStorage.setItem(itemId, itemValue);
         $('.todoItemsContainer').append(itemDiv);
         $('#itemInput').val("");
-        console.log('Item ajouter à la liste avec l\'id : ' + itemId);
+        console.log(`Item ajouter à la liste avec l'id : ${itemId}`);
     } else {
         alert('Ce champ ne doit pas être vide !')
     }
@@ -67,9 +62,8 @@ function addItem() {
                 let value = $(target).html();
                
                 $('.progressItemContainer').append(target);
-                target.className = 'item' + ' progress';
-                $(id).attr('onclick', 'finishItem();');
-                $('.progress').attr('onclick', finishItem());
+                target.className = `item progress`;
+                $(id).attr('onclick', finishItem());
 
                 sessionStorage.setItem(target.id, value);
                 localStorage.removeItem(target.id, value);
@@ -84,11 +78,35 @@ function addItem() {
             $('.progress').click((e) => {
                 let target = e.target;
                 let value = $(target).html();
+                let id = '#' + e.target.id;
     
                 $('.finishItemContainer').append(target);
-                target.className = 'item' + ' finish';
+                target.className = `item finish`;
                 sessionStorage.removeItem(target.id, value);
+                $(id).attr('onclick', 'trashItem();');
             })
         }
     };
+
+    // Faire la function de suppression des tâches
+    function trashItem() {
+        if ($('.item').hasClass('finish')) {
+            $('.finish').click((e) => {
+            let target = e.target;
+            let value = $(target).html();
+            let id = '#' + target.id;
+
+            $('.deletedItemsContainer').append(target);
+            $(id).addClass('ghost fas fa-ghost');
+            $(id).addClass('deletedItems');
+            $(id).removeClass('item');
+            $(id).removeClass('finish');
+
+            
+            $(id).removeAttr('onclick');
+            })
+        }
+    }
+
+
 
